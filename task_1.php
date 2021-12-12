@@ -47,19 +47,34 @@
                                     </div>
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
                                         <?php
-                                            $listOfElements = [
-                                            "Reports",
-                                            "Analytics",
-                                            "Export",
-                                            "Storage",
-                                            ];
+                                        $listOfElements = [
+                                            [
+                                                "title" => "Reports",
+                                                "tags" => "reports file"
+                                            ],
+                                            [
+                                                "title" => "Analytics",
+                                                "tags" => "analytics graphs"
+                                            ],
+                                            [
+                                                "title" => "Export",
+                                                "tags" => "export download"
+                                            ],
+                                            [
+                                                "title" => "Storage",
+                                                "tags" => "storage"
+                                            ],
 
-                                            foreach ($listOfElements as $element) {
-                                                echo '<li class="list-group-item">
-                                                        <span data-filter-tags="reports file">'.$element.'</span>
-                                                      </li>';
+                                        ];
+
+                                        foreach ($listOfElements as $element) {
+                                            echo '<li class="list-group-item">
+                                            <span data-filter-tags="'.$element["tags"].'">'.$element["title"].'</span>
+                                        </li>';
                                         }
                                         ?>
+
+
                                     </ul>
                                     <div class="filter-message js-filter-message mt-0 fs-sm"></div>
                                 </div>
