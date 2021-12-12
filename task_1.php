@@ -47,21 +47,19 @@
                                     </div>
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
                                         <?php
-                                        $listOfElements = [
+                                            $listOfElements = [
                                             "Reports",
                                             "Analytics",
                                             "Export",
                                             "Storage",
-                                        ];
+                                            ];
 
-                                        foreach ($listOfElements as $element) {
-                                            echo '<li class="list-group-item">
-                                                  <span data-filter-tags="reports file">'.$element.'</span>
-                                        </li>';
+                                            foreach ($listOfElements as $element) {
+                                                echo '<li class="list-group-item">
+                                                        <span data-filter-tags="reports file">'.$element.'</span>
+                                                      </li>';
                                         }
                                         ?>
-
-
                                     </ul>
                                     <div class="filter-message js-filter-message mt-0 fs-sm"></div>
                                 </div>
