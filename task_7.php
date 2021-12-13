@@ -45,7 +45,6 @@
             $statement = $pdo->prepare($sql);
             $statement->execute();
             $array = $statement->fetchAll(PDO::FETCH_ASSOC);
-
             ?>
 
             <div class="panel-container show">
