@@ -67,13 +67,11 @@
 
                                         ];
 
-                                        foreach ($listOfElements as $element) {
-                                            echo '<li class="list-group-item">
-                                            <span data-filter-tags="'.$element["tags"].'">'.$element["title"].'</span>
-                                        </li>';
-                                        }
-                                        ?>
-
+                                        foreach ($listOfElements as $element):?>
+                                            <li class="list-group-item">
+                                            <span data-filter-tags=" <?php echo $element["tags"];?> "><?php echo $element["title"] ?></span>
+                                        </li>
+                                        <?php endforeach; ?>
 
                                     </ul>
                                     <div class="filter-message js-filter-message mt-0 fs-sm"></div>
