@@ -30,19 +30,42 @@
                             <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
                         </div>
                     </div>
+                    <?php
+                    $breadcrumb = [
+                        [
+                            'title' => 'Главная',
+                            'href'  =>  '#',
+                            'is_link' => true
+                        ],
+                        [
+                            'title' => 'PHP',
+                            'href'  =>  '#',
+                            'is_link' => true
+                        ],
+                        [
+                            'title' => 'Функции',
+                            'href'  =>  '',
+                            'is_link' => false
+                        ],
+
+                    ];
+                    ?>
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <?php
-                                    $breadcrumb = [
-                                        '<a href="#">Главная</a>',
-                                        '<a href="#">PHP</a>',
-                                        'Функции'
-                                    ];
-                                    foreach ($breadcrumb as $item) {
-                                        echo ' <li class="breadcrumb-item">'.$item.'</li>';
-                                    }
-                                ?>
+
+                                <?php foreach ($breadcrumb as $item) :?>
+                                    <?php if($item['is_link']) :?>
+                                        <li class="breadcrumb-item">
+                                            <a href="<?php echo $item['href'];?>"><?php echo $item['title']; ?></a>
+                                        </li>
+                                    <?php else : ?>
+                                        <li class="breadcrumb-item active">
+                                            <?php echo $item['title']; ?>
+                                        </li>
+                                    <?php endif;?>
+                                <?php endforeach;?>
+
                             </ol>
                         </div>
                     </div>
