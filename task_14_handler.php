@@ -34,7 +34,7 @@ function passwordVerify($input_password, $dbPassword) {
      $_SESSION['success'] = $message;
      $_SESSION['login'] = $input_email;
 
-     header("Location: /task_14.php");
+     header("Location: /task_15.php");
      exit;
  } else {
      $message = "пароль введен неверно, повторите ввод";
@@ -44,4 +44,3 @@ function passwordVerify($input_password, $dbPassword) {
      exit;
  }
 
-var_dump();
