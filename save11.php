@@ -1,7 +1,12 @@
 <?php
 session_start();
 $input_email = $_POST['email'];
-$input_password = crypt($_POST['password'], '$2a$07$usesomesillystringforsalt$');
+$input_password = ($_POST['password']);
+
+function passwordHash($password) {
+    return hash( 'sha256', $password);
+}
+
 
 
 
@@ -24,7 +29,7 @@ $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
 $statement = $pdo->prepare($sql);
 $statement->execute([
     'email' => $input_email,
-    'password' => $input_password
+    'password' => passwordHash($input_password)
 ]);
 $message = "email успешно зарегистрирован";
 $_SESSION['success'] = $message;
