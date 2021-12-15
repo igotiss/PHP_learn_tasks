@@ -1,7 +1,7 @@
 <?php
 session_start();
 $input_email = $_POST['email'];
-$input_password = hash('md5', $_POST['password']);
+$input_password = crypt($_POST['password']);
 
 
 
