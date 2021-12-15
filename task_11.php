@@ -1,7 +1,6 @@
 <?php
     session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,21 +37,26 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <?php if(isset($_SESSION['danger'])):?>
+                                    <?php if(isset($_SESSION['danger']) ): ?>
                                     <div class="alert alert-danger fade show" role="alert">
-                                        <?php echo $_SESSION['danger']; unset($_SESSION['danger']);?>
+                                        <?php echo $_SESSION['danger']; unset($_SESSION['danger'])?>
                                     </div>
                                     <?php endif;?>
 
-                                    <?php if(isset($_SESSION['success'])):?>
+                                    <?php if(isset($_SESSION['success']) ): ?>
                                         <div class="alert alert-success fade show" role="alert">
-                                            <?php echo $_SESSION['success']; unset($_SESSION['success']);?>
+                                            <?php echo $_SESSION['success']; unset($_SESSION['success'])?>
                                         </div>
                                     <?php endif;?>
 
-                                    <form action="save10.php" method="post">
-                                        <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="text">
+                                    <form action="save11.php" method="post">
+                                        <div class="form-group">
+                                        	<label class="form-label" for="simpleinput">Email</label>
+                                        <input type="email" id="simpleinput" class="form-control" name="email">
+                                        </div>
+
+                                        <label class="form-label" for="simpleinput">Password</label>
+                                        <input type="password" id="simpleinput" class="form-control" name="password">
                                         <button class="btn btn-success mt-3" type="submit">Submit</button>
                                     </form>
                                 </div>

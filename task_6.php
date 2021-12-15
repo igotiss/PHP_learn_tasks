@@ -38,49 +38,14 @@
 
 
             <?php
-            $array = [
-                [   'imgSrc'    => 'img/demo/authors/sunny.png',
-                    'imgAlt'    => 'Sunny A.',
-                    'name'      => 'Sunny A. (UI/UX Expert)',
-                    'profession'=> 'Lead Author',
-                    'twitterLink'=>'https://twitter.com/@myplaneticket',
-                    'twitterName'=>'@myplaneticket',
-                    'contactLink'=>'https://wrapbootstrap.com/user/myorange',
-                    'contactTitle'=>'Contact Sunny',
-                    'banned' => false
-                ],
-                [   'imgSrc'    => 'img/demo/authors/josh.png',
-                    'imgAlt'    => 'Jos K.',
-                    'name'      => 'Jos K. (ASP.NET Developer)',
-                    'profession'=> 'Partner &amp; Contributor',
-                    'twitterLink'=>'https://twitter.com/@atlantez',
-                    'twitterName'=>'@atlantez',
-                    'contactLink'=>'https://wrapbootstrap.com/user/Walapa',
-                    'contactTitle'=>'Contact Jos',
-                    'banned' => false
-                ],
-                [   'imgSrc'    => 'img/demo/authors/jovanni.png',
-                    'imgAlt'    => 'Jovanni Lo',
-                    'name'      => 'Jovanni L. (PHP Developer)',
-                    'profession'=> 'Partner &amp; Contributor',
-                    'twitterLink'=>'https://twitter.com/@lodev09',
-                    'twitterName'=>'@lodev09',
-                    'contactLink'=>'https://wrapbootstrap.com/user/lodev09',
-                    'contactTitle'=>'"Contact Jovanni',
-                    'banned' => true
-                ],
-                [   'imgSrc'    => 'img/demo/authors/roberto.png',
-                    'imgAlt'    => 'Jovanni Lo',
-                    'name'      => 'Roberto R. (Rails Developer)',
-                    'profession'=> 'Partner &amp; Contributor',
-                    'twitterLink'=>'https://twitter.com/@sildur',
-                    'twitterName'=>'@sildur',
-                    'contactLink'=>'https://wrapbootstrap.com/user/sildur',
-                    'contactTitle'=>'Contact Roberto',
-                    'banned' => true
-                ],
 
-            ];
+
+            $pdo = new PDO("mysql:host=localhost;dbname=php_learn", "root","root");
+            $sql = "SELECT * FROM people";
+            $statement = $pdo->prepare($sql);
+            $statement->execute();
+            $array = $statement->fetchAll(PDO::FETCH_ASSOC);
+
             ?>
 
             <div class="panel-container show">
@@ -95,7 +60,7 @@
                                 }
                                 ?>
                              rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="<?php echo $item['imgSrc'];?>" alt="<?php echo $item['imgAlt'];?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
+                                <img src="<?php echo $item['img_src'];?>" alt="<?php echo $item['img_alt'];?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
                                 <div class="ml-2 mr-3">
                                     <h5 class="m-0">
                                         <?php echo $item['name'];?>
@@ -103,8 +68,8 @@
                                             <?php echo $item['profession'];?>
                                         </small>
                                     </h5>
-                                    <a href="<?php echo $item['twitterLink'];?>" class="text-info fs-sm" target="_blank"><?php echo $item['twitterName'];?></a> -
-                                    <a href="<?php echo $item['contactLink'];?>" class="text-info fs-sm" target="_blank" title="<?php echo $item['contactTitle'];?>"><i class="fal fa-envelope"></i></a>
+                                    <a href="<?php echo $item['twitter_link'];?>" class="text-info fs-sm" target="_blank"><?php echo $item['twitter_name'];?></a> -
+                                    <a href="<?php echo $item['contact_link'];?>" class="text-info fs-sm" target="_blank" title="<?php echo $item['contact_title'];?>"><i class="fal fa-envelope"></i></a>
                                 </div>
                             </div>
                         <?php endforeach;?>
