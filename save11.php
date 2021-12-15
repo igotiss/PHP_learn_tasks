@@ -1,7 +1,7 @@
 <?php
 session_start();
 $input_email = $_POST['email'];
-$input_password = crypt($_POST['password']);
+$input_password = crypt($_POST['password'], '$2a$07$usesomesillystringforsalt$');
 
 
 
